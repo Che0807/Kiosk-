@@ -23,7 +23,13 @@ public class Menu {
         }
     }
 
-    public List<MenuItem> getMenuItems() {
-        return menuItems;
+    // 메뉴 번호에 해당하는 항목을 가져오는 메서드
+    public MenuItem getMenuItem(int order) {
+        for (MenuItem item : menuItems) {
+            if (item.getNum() == order) {
+                return item;  // 해당 메뉴를 찾으면 반환
+            }
+        }
+        throw new IllegalStateException("잘못된 메뉴 번호입니다.");
     }
 }

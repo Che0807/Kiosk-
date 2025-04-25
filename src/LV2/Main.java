@@ -16,33 +16,24 @@ public class Main {
             // 메뉴 출력
             menu.printMenu();
             System.out.println("0. 종료 | 종료");
-
             // 사용자 입력 받기
             System.out.print("원하는 메뉴 번호를 입력하세요: ");
-            int menuNum = scanner.nextInt();
+            int order = scanner.nextInt();
 
-            // 0 입력 시 종료
-            if (menuNum == 0) {
+            // 입력된 번호가 0일 경우 종료 처리
+            if (order == 0) {
                 System.out.println("프로그램을 종료합니다.");
                 break;
             }
 
-            // 메뉴 항목 탐색
-            MenuItem selectedItem = null;
-            for (MenuItem item : menu.getMenuItems()) {
-                if (item.getNum() == menuNum) {
-                    selectedItem = item;
-                    break;
-                }
-            }
-
-            // 결과 출력
-            if (selectedItem != null) {
+            // 예외 처리
+            try {
+                MenuItem selectedItem = menu.getMenuItem(order);  // 메뉴 항목 찾기
                 System.out.println("선택한 메뉴: " + selectedItem.getName());
                 System.out.println("가격: " + selectedItem.getPrice() + "W");
                 System.out.println("설명: " + selectedItem.getDescription());
-            } else {
-                System.out.println("잘못된 메뉴 번호입니다.");
+            } catch (IllegalStateException e) {
+                System.out.println(e.getMessage());  // 예외 메시지 출력
             }
         }
     }
