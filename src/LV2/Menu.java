@@ -19,8 +19,11 @@ public class Menu {
     public void printMenu() {
         System.out.println("[ SHAKESHACK MENU ]");
         for (MenuItem item : menuItems) {
-            System.out.println(item.getNum() + "." + item.getName() + "|" + "W" + item.getPrice() + "|" + item.getDescription());
+            System.out.println(item.getNum() + "." + item.getName() + "|" + " W " + item.getPrice() + "|" + item.getDescription());
         }
-        System.out.println("=================");
+    }
+
+    public List<MenuItem> getMenuItems() {
+        return menuItems;
     }
 }
