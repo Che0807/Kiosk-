@@ -24,4 +24,11 @@ public class MenuItem {
     public String getDescription() {
         return description;
     }
+
+    // toString 메서드를 오버라이드하여 메뉴 항목을 보기 좋은 형식으로 출력
+    @Override
+    public String toString() {
+        return name + " - " + price + "원: " + description;
+    }
 }
+
