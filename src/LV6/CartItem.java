@@ -1,7 +1,7 @@
 package LV6;
 
 public class CartItem {
-    private MenuItem item;  // 어떤 메뉴인지
+    private final MenuItem item;  // 어떤 메뉴인지
     private int quantity;   // 수량
 
     public CartItem(MenuItem item, int quantity) {
@@ -26,4 +26,10 @@ public class CartItem {
         return item.getPrice() * quantity;
     }
 
+    @Override
+    public String toString() {
+        return item.getName() + " - 수량: " + quantity + "개, 총 가격: " + getTotalPrice() + "원";
+    }
 }
+
+
